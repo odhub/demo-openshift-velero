@@ -1,0 +1,17 @@
+apiVersion: velero.io/v1
+kind: Backup
+metadata:
+  name: mariadb-backup
+  namespace: openshift-adp
+spec:
+  includedNamespaces:
+  - statefull
+  includedResources:
+  - statefulsets
+  - persistentvolumeclaims
+  - pods
+  - services
+  storageLocation: velero-adp-1
+  snapshotVolumes: true
+  ttl: 720h0m0s
+

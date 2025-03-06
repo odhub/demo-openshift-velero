@@ -1,0 +1,16 @@
+apiVersion: velero.io/v1
+kind: Restore
+metadata:
+  name: mariadb-restore
+  namespace: openshift-adp
+spec:
+  backupName: mariadb-backup
+  includedNamespaces:
+  - statefull
+  includedResources:
+  - statefulsets
+  - persistentvolumeclaims
+  - pods
+  - services
+  restorePVs: true
+
